@@ -14,7 +14,7 @@ namespace RecipeApp
             private string[] units;
             private double[] originalQuantity;
 
-            public Recipe(int numIngredients, int numSteps, string numOfUnits)//constructor
+            public Recipe(int numIngredients, int numSteps, string numOfUnits)//creating a constructor
             {
                 ingredients = new string[numIngredients];
                 originalQuantity = new double[numIngredients];

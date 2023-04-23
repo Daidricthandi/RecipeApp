@@ -20,6 +20,7 @@ namespace RecipeApp
             Console.WriteLine("\nPlease enter the unit of measurement : ");
             String measureUnits = (Console.ReadLine());
 
+            //creating an object of the recipe class
             Recipe recipe = new Recipe(numIngredients, numSteps, measureUnits);
 
             //loop until user exits the program
