@@ -8,30 +8,25 @@ namespace RecipeApp
         static void Main(string[] args) 
         {
             Console.WriteLine("WELCOME TO THE RECIPE APPLICATION!");
+            Console.WriteLine("************************************");
 
             Console.WriteLine();
-
-            Console.WriteLine("Please enter the number of ingredients : ");
-            int numIngredients = Convert.ToInt32(Console.ReadLine());
-
-            Console.WriteLine("\nPlease enter the number of steps : ");
-            int numSteps = Convert.ToInt32(Console.ReadLine());
-
-            Console.WriteLine("\nPlease enter the unit of measurement : ");
-            String measureUnits = (Console.ReadLine());
-
+    
             //creating an object of the recipe class
-            Recipe recipe = new Recipe(numIngredients, numSteps, measureUnits);
+            Recipe recipe = new Recipe();
+
+            bool exit = false;
 
             //loop until user exits the program
-            while (true)
+            while (!exit)
             {
                 Console.WriteLine("\nPlease choose an option below : ");
-                Console.WriteLine("1. Dispaly recipe");
-                Console.WriteLine("2. Scale recipe");
-                Console.WriteLine("3. Reset quantities");
-                Console.WriteLine("4. Clear recipe");
-                Console.WriteLine("5. Exit");
+                Console.WriteLine("1. Enter recipe details");
+                Console.WriteLine("2. Dispaly recipe");
+                Console.WriteLine("3. Scale recipe");
+                Console.WriteLine("4. Reset quantities");
+                Console.WriteLine("5. Clear recipe");
+                Console.WriteLine("6. Exit application");
                 
                 Console.WriteLine();
 
@@ -40,33 +35,36 @@ namespace RecipeApp
                 switch (choice)
                 {
                     case 1:
+                        recipe.EnterDetails();
+                        break;
+
+                    case 2:
                         recipe.DisplayRecipe();
                     break;
 
-                    case 2:
-                        Console.WriteLine("\nEnter the scale factor (0.5, 2 0r 3): ");
-                        double factor = Convert.ToDouble(Console.ReadLine());
-                        recipe.ScaleRecipe(factor);
-                    break;
-
                     case 3:
-                        recipe.ResetQuantities();
+                        recipe.ScaleRecipe();
                     break;
 
                     case 4:
-                        recipe.ClearRecipe();
+                        recipe.ResetQuantities();
                     break;
 
                     case 5:
-                        Environment.Exit(0);
+                        recipe.ClearRecipe();
+                    break;
+
+                    case 6:
+                     exit = true;
                     break;
 
                     default:
-                        Console.WriteLine("Invalid choice! Please enter a number between 1 and 5.");
+                        Console.WriteLine("Invalid choice!");
                     break;
 
                 }
             }
+            Console.WriteLine("Thank you for using our application!");
         }
 
 
